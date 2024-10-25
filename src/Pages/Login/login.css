@@ -1,0 +1,115 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-area {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.input-box {
+    display: flex;
+    gap: 30px;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 18px;
+    background-color: aliceblue;
+    padding: 30px 0 ;
+}
+
+.title {
+    font-family: 'Poppins';
+    text-align: center;
+}
+.title h1 {
+    font-size: 40px;
+}
+
+.inputarea{
+    padding: 7px 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #C1BBBB;
+    background: #FFF;
+    transition: all ;
+    max-width: 450px
+}
+.inputarea:hover{
+    border-left: 4px solid #235789;
+}
+.inputarea label{
+    color: rgba(0, 0, 0, 0.61);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.inputarea input{
+    border: 0;
+    margin-top: 8px;
+    color: #235789;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.btnRespo{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    gap: 60px;
+}
+
+.register-btn{
+    text-decoration: none;
+    text-align: center;
+    background-color: #fff;
+    padding: 12px;
+    font-size: 14px;
+    width: 70px;
+    font-family: Poppins;
+    color: #235789;
+    border: 1px solid #235789;
+    transition: all 0.3s;
+}
+.register-btn:hover{
+    background: #235789;
+    color: #fff;
+}
+
+.login-btn{
+    border: 0;
+    padding: 12px;
+    font-family: Poppins;
+    font-size: 14px;
+    color: #235789;
+    background: #fff;
+    border: 1px solid #235789;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.login-btn:hover{
+    background: #235789;
+    color: #fff;
+}
+
+.inputSenha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

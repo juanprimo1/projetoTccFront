@@ -1,0 +1,93 @@
+*{
+    font-family: 'Roboto';
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .dialog {
+    width: 60%;
+    height: 100%;
+    position: relative;
+}
+
+.container .dialog .text-bot {
+    width: 100%;
+    padding: 0 15px;
+    height: 150px;
+    position: relative;
+}
+.container .dialog .text-user {
+    width: 100%;
+    padding: 0 15px;
+    height: 150px;
+    position: relative;
+}
+.text-bot .robo-figure {
+    position: absolute;
+    width: 102px;
+    height: 106px;
+    z-index: 1;
+}
+.text-bot .text-area{
+    position: absolute;
+    top: 36%;
+    padding: 14px 12px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #3E8BFF;
+    color: #fff;
+    z-index: 2;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.text-user .text-area-user{
+    position: absolute;
+    right: 0;
+    margin-top: 40px;
+    padding: 14px 12px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #999;
+    color: #fff;
+}
+
+.response-field{
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.response-field input {
+    padding: 8px 12px;
+    font-family: 'Poppins';
+    width: 60%;
+    font-size: 16px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #f2f3f3;
+}
+
+.response-field button {
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.response-field button svg {
+    padding: 8px;
+}
+.response-field button:hover{
+    scale: 1.1;
+}
+
