@@ -3,15 +3,22 @@
 }
 
 .container {
-    width: 100%;
-    height: 100vh;
+    width: 450px;
+    height: 550px;
+    position: fixed;
+    border-radius: 12px;
+    bottom: 3%;
+    right: 3%;
+    z-index: 9999999;
+    background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .container .dialog {
-    width: 60%;
+    width: 100%;
     height: 100%;
+    padding: 0 20px;
     position: relative;
 }
 
@@ -49,8 +56,8 @@
 }
 .text-user .text-area-user{
     position: absolute;
-    right: 0;
-    margin-top: 40px;
+    right: 5%;
+    margin-top: 60px;
     padding: 14px 12px;
     border-radius: 20px;
     border: 0;
@@ -60,7 +67,6 @@
 
 .response-field{
     position: absolute;
-    width: 100%;
     bottom: 5%;
     display: flex;
     justify-content: center;
@@ -88,6 +94,69 @@
     padding: 8px;
 }
 .response-field button:hover{
+    scale: 1.1;
+}
+
+.react-confirm-alert-button--confirm {
+    background-color: #fff;
+    color: #000; 
+    transition: all 0.2s;
+  }
+
+  .react-confirm-alert-button--confirm:hover {
+    background-color: #3E8BFF;
+    color: #fff;
+  } 
+  
+  .react-confirm-alert-button--cancel {
+    background-color: #fff;
+    color: #000; 
+    transition: all 0.2s; /* Cor do botão de cancelamento */
+  }
+
+  .react-confirm-alert-button--cancel:hover{
+    background-color: #f44336;
+    color: #fff;
+  }
+
+  .response-field button {
+    margin: 0 10px;
+    border: 0;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: "Poppins";
+  }
+
+  .btn-voltar {
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    border: 0;
+    border-radius: 16px;
+    color: #235789;
+    transition: all 0.2s;
+  }
+  .btn-voltar:hover {
+    border: 1px solid #235789;
+  }
+
+  .cancel {
+    position: absolute;
+    top: 2.5%;
+    right: 2.5%;
+    width: 20px;
+    height: 20px;
+    color: #e5403f;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 9999;
+}
+.cancel:hover{
     scale: 1.1;
 }
 

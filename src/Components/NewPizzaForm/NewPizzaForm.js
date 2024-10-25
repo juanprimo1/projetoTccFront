@@ -14,12 +14,12 @@ export default function NewPizzaForm(props) {
     const [pizzaNew, setPizzaNew] = useState({});
     const [bebidaNew, setBebidaNew] = useState({})
 
-    const [pizzaCodigo, setPizzaCodigo] = useState(null);
-    const [bebida, setBebida] = useState(null);
+    const [pizzaCodigo, setPizzaCodigo] = useState("");
+    const [bebida, setBebida] = useState("");
     const [quantidadePizza, setQuantidadePizza] = useState(1);
     const [quantidadeBebida, setQuantidadeBebida] = useState(1);
     const [observacao, setObservacao] = useState("")
-    var itensPedido = [];
+    const [itensPedido, setItensPedido] = useState([]);
 
     const [pizzas, setPizzas] = useState([]);
     const [bebidas, setBebidas] = useState([]);
@@ -62,37 +62,46 @@ export default function NewPizzaForm(props) {
     }
 
     async function addPedido() {
-
-        await api.get(`pizza/${pizzaCodigo}`)
-        .then((res) => {
-            setPizzaNew(res.data);
-        })
-        .catch((error) => toast.error(error.message))
-
-        await api.get(`bebidas/${bebida}`)
-        .then((res) => {
-            setBebidaNew(res.data);
-        })
-        .catch((error) => toast.error(error.message))
-
-        itensPedido.push({
-            pizza: pizzaNew,
-            bebidas: bebidaNew
-        })
+        try {
+            const [pizzaResponse, bebidaResponse] = await Promise.all([
+                api.get(`pizza/${pizzaCodigo}`),
+                api.get(`bebidas/${bebida}`)
+            ]);
+    
+            setPizzaNew(pizzaResponse.data);
+            setBebidaNew(bebidaResponse.data);
+    
+            setItensPedido(prevItens => [
+                ...prevItens, 
+                {
+                    pizza: pizzaResponse.data,
+                    bebidas: bebidaResponse.data,
+                    quantidadePizza,
+                    quantidadeBebida
+                }
+            ]);
+    
+            toast.success("Item adicionado ao carrinho!");
+        } catch (error) {
+            toast.error(error.message);
+        }
     }
 
-    async function submitPedido() {
+    async function submitPedido(event) {
+        console.log(itensPedido)
+        event.preventDefault()
         let valorPedido = 0;
 
         itensPedido.map((ip) => {
-            valorPedido += (ip.pizza.valorPizza + ip.bebida.valorBebida)
+            valorPedido += (ip.pizza.valorPizza + ip.bebidas.valorBebida)
         })
 
+        console.log(valorPedido)
         if (pizzaNew !== null && bebidaNew !== null)
-            await api.post('pedido',{
+            await api.post('pedidos',{
                 valorPedido: valorPedido,
                 informacaoAdicional: observacao,
-                codigoUsuario: props.userId,
+                codigoUsuario: props.user,
                 itensPedido: itensPedido
             })
             .then(() => toast.success("Pedido Registrado com sucesso!"))
@@ -101,8 +110,11 @@ export default function NewPizzaForm(props) {
 
     return(
         <div id="pizza-form" className="pizza-modal">
-                <form onSubmit={submitPedido}>
-                    <FontAwesomeIcon onClick={() => document.getElementById("pizza-form").setAttribute("class", "pizza-modal-hidden")} className="cancel" icon={faCircleXmark} />
+                <form onSubmit={(event) => submitPedido(event)}>  
+                <FontAwesomeIcon onClick={() => {
+                        document.getElementById("pizza-form").setAttribute("class", "pizza-modal-hidden")
+                        props.sair()
+                        }} className="cancel" icon={faCircleXmark} />
                     <div className="inputs">
                         <div className="inputarea">
                             <label>Pizza</label>
@@ -135,7 +147,7 @@ export default function NewPizzaForm(props) {
                             <label>informacao Adicional</label>
                                 <textarea value={observacao} onChange={(e) => setObservacao(e.target.value)}/>
                         </div>
-                        <button onClick={addPedido} className="login-btn">
+                        <button type="button" onClick={() => addPedido()} className="login-btn">
                             Adicionar ao carrinho <FaCartPlus size={15} />
                         </button>
                     </div>

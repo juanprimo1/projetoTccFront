@@ -7,10 +7,12 @@ import { useEffect, useState } from "react";
 import api from "../../Service/api";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import ChatBot from "../ChatBot/ChatBot";
 
 export default function Home() {
 
     const [pizzas, setPizzas] = useState([]);
+    const [show, setShow] = useState(false)
     const navigate = useNavigate();
     useEffect( ()=>{
 
@@ -54,9 +56,10 @@ export default function Home() {
                 <div className="robo-area">
                     <div className="conteudo-robo">
                         <img src={robo} alt="imagem-robo"/>
-                        <button onClick={() => navigate("/chat-bot")}>Faça seu pedido</button> 
+                        <button onClick={() => setShow(true)}>Faça seu pedido</button> 
                     </div>     
                 </div>
+                <ChatBot show={show} />
             </body>
             <ToastContainer />
         </>

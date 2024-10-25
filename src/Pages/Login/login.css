@@ -33,6 +33,13 @@
     font-size: 40px;
 }
 
+.title span {
+    text-align: center;
+    font-family: "Poppins";
+    color: #235789;
+    font-size: 22px;
+}
+
 .inputarea{
     padding: 7px 12px;
     display: flex;
@@ -72,6 +79,23 @@ input:focus{
     height: 100px;
     align-items: center;
     gap: 60px;
+}
+.inputarea select {
+    margin-top: 5px;
+    padding: 6px 10px;
+    border: 0;
+    color: #235789;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+}
+.inputarea select option {
+    color: #235789;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
 }
 
 .register-btn{

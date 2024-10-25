@@ -13,6 +13,8 @@ export default function Register() {
     const [nome, setNome] = useState("");
     const [telefone, setTelefone] = useState("");
     const [tipoSenha, setTipoSenha] = useState("password");
+    const [user, setUser] = useState({})
+
     const navigate = useNavigate();
 
     function showSenha() {
@@ -22,7 +24,9 @@ export default function Register() {
             setTipoSenha("password")
     }
 
-    async function register() {
+    async function register(event) {
+        event.preventDefault();
+
         if (nome === "" || email === "" || senha === "" || telefone === "")
             toast.error("todos os campos são obrigatórios!")
         else {
@@ -32,21 +36,24 @@ export default function Register() {
                 senha: senha,
                 telefone: telefone, 
             }
+
             await api.post('user/register', usuario, {
                 headers: {
                   'Content-Type': 'application/json',
                 },
-              })
-            .then((res) => {
-                localStorage.setItem("@userCredential", res.data.nomeUsuario)
-                localStorage.setItem("@active", true)
-                navigate('/home')
             })
-            .catch((error) => {
-                alert(error)
-                toast.error(error.response.data.message)
+            .then((data) => {
+                localStorage.setItem("@userCredential", nome)
+                localStorage.setItem("@active", true)
+                localStorage.setItem("@userId", data.data.codigoUsuario)
+            navigate('/home') 
+            })
+            .catch((e) => {
+                toast.error(e.response.data.message)
+                return;
             })
 
+        
         }
 
     }
@@ -54,7 +61,7 @@ export default function Register() {
         return (
             <div className="container">
                 <div className="input-area">
-                    <form div className="input-box" onSubmit={() => register()}>
+                    <form div className="input-box" onSubmit={(event) => register(event)}>
                         <div className="title">
                             <h1>PIZZA</h1>
                             <span>Seja bem vindo! Crie sua conta.</span>

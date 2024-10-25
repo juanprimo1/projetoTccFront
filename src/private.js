@@ -10,17 +10,16 @@ export default function Private({ children }) {
             
             const authorized = localStorage.getItem("@active")
            // Se autorizado for "true", usuário está autenticado
-        if (authorized === "true") {
-            setSigned(true);
-        } else {
-            setSigned(false); // Usuário não autenticado
-        }
-
-        setloading(false)
+            if (authorized === "true") {
+                setSigned(true);
+            } else {
+                setSigned(false); // Usuário não autenticado
+            }
+        
         }
 
         isSigned();
-        
+        setloading(false);
     }, [])
 
     if(loading){

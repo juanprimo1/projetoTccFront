@@ -21,19 +21,7 @@
     border-radius: 8px;
     position: relative;
 }
-.cancel {
-    position: absolute;
-    top: 2.5%;
-    right: 2.5%;
-    width: 20px;
-    height: 20px;
-    color: #e5403f;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.cancel:hover{
-    scale: 1.1;
-}
+
 .pizza-modal form .inputs {
     display: flex;
     flex-direction:  column;
