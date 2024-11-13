@@ -27,8 +27,8 @@ export default function Register() {
     async function register(event) {
         event.preventDefault();
 
-        if (nome === "" || email === "" || senha === "" || telefone === "")
-            toast.error("todos os campos são obrigatórios!")
+        if (nome === "" || email === "" || senha === "")
+            toast.error("Preencha os campos Obrigatórios!")
         else {
             let usuario = {
                 nomeUsuario: nome,
@@ -68,7 +68,7 @@ export default function Register() {
                         </div>
 
                         <div className="inputarea">
-                            <label>Nome</label>
+                            <label>Nome *</label>
                             <input type="text"
                                    placeholder="Seu nome" 
                                    value={nome} 
@@ -84,7 +84,7 @@ export default function Register() {
                         </div>
 
                         <div className="inputarea">
-                            <label>Email</label>
+                            <label>Email *</label>
                             <input type="text"
                                    placeholder="xxxxx@xxxx.com" 
                                    value={email} 
@@ -92,7 +92,7 @@ export default function Register() {
                         </div>
     
                         <div className="inputarea">
-                            <label>Senha</label>
+                            <label>Senha *</label>
                             <div className="inputSenha">
                                 <input type={tipoSenha}
                                        placeholder="******" 

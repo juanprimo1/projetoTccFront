@@ -20,6 +20,7 @@ export default function NewPizzaForm(props) {
     const [quantidadeBebida, setQuantidadeBebida] = useState(1);
     const [observacao, setObservacao] = useState("")
     const [itensPedido, setItensPedido] = useState([]);
+    const [pizzaDescription, setPizzaDescription] = useState("");
 
     const [pizzas, setPizzas] = useState([]);
     const [bebidas, setBebidas] = useState([]);
@@ -44,6 +45,7 @@ export default function NewPizzaForm(props) {
         await api.get("pizza")
             .then((res) => {
                 setPizzas(res.data)
+                setPizzaCodigo(res.data[0].codigoPizza)
             })  
             .catch((error) => {
                 toast.error(error.message);
@@ -55,6 +57,7 @@ export default function NewPizzaForm(props) {
         await api.get("bebidas")
             .then((res) => {
                 setBebidas(res.data);
+                setBebida(res.data[0].codigoBebida)
             })  
             .catch((error) => {
                 toast.error(error.message);
@@ -63,6 +66,11 @@ export default function NewPizzaForm(props) {
 
     async function addPedido() {
         try {
+
+            if (pizzaCodigo === "" || bebida === "") {
+                toast.error("Opções faltantes!")
+                return;
+            }
             const [pizzaResponse, bebidaResponse] = await Promise.all([
                 api.get(`pizza/${pizzaCodigo}`),
                 api.get(`bebidas/${bebida}`)
@@ -119,7 +127,13 @@ export default function NewPizzaForm(props) {
                         <div className="inputarea">
                             <label>Pizza</label>
                             <div className="multi-value">
-                                <select value={pizzaCodigo} onChange={(e) => setPizzaCodigo(e.target.value)}>
+                                <select value={pizzaCodigo} onChange={(e) =>  {
+                                    setPizzaCodigo(e.target.value)
+                                    pizzas.map((p) => {
+                                        if (p.codigoPizza === e.target.value)
+                                            setPizzaDescription(p.ingredientes);
+                                    })
+                                    }}>
                                     {pizzas.map((p) => (
                                         <option value={p.codigoPizza}>
                                             {p.nomePizza}
@@ -128,6 +142,10 @@ export default function NewPizzaForm(props) {
                                 </select>
                                 <input type="number" value={quantidadePizza} onChange={(e) => setQuantidadePizza(e.target.value)} min={1} step={1}/>
                             </div>
+                        </div>
+
+                        <div className="desc-pizza">
+                            <span>{pizzaDescription}</span>
                         </div>
 
                         <div className="inputarea">
@@ -151,7 +169,7 @@ export default function NewPizzaForm(props) {
                             Adicionar ao carrinho <FaCartPlus size={15} />
                         </button>
                     </div>
-                    <button type="submit" className="login-btn">
+                    <button type="submit" disabled={itensPedido.length === 0 ? true : false} className={itensPedido.length === 0 ? "login-btn-blocked" : "login-btn"}>
                         Finalizar pedido
                     </button>
                 </form>

@@ -18,6 +18,7 @@
     align-items: center;
     background: aliceblue;
     flex-direction: column;
+    gap: 30px;
     border-radius: 8px;
     position: relative;
 }
@@ -48,4 +49,15 @@
 }
 .pizza-modal-hidden{
     display: none;
+}
+.login-btn-blocked {
+    border: 0;
+    padding: 12px;
+    font-family: "Poppins";
+    font-size: 14px;
+    color: #235789;
+    background: #fff;
+    border: 1px solid #235789;
+    transition: all 0.3s;
+    cursor: not-allowed;
 }

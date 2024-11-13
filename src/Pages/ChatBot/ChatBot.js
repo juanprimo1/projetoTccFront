@@ -23,8 +23,8 @@ export default function ChatBot(props) {
         {
             sender: "bot",
             question: "Qual operação você deseja fazer?",
-            answers: ["Novo pedido", "Repetir pedido", "Voltar"],
-            indexes: [1, 2, 3]
+            answers: ["Novo pedido", "Repetir pedido"],
+            indexes: [1, 2]
         }
     ]);
 
@@ -42,8 +42,8 @@ export default function ChatBot(props) {
                     {
                         sender: "bot",
                         question: "Qual operação você deseja fazer?",
-                        answers: ["Novo pedido", "Repetir pedido", "Voltar"],
-                        indexes: [1, 2, 3]
+                        answers: ["Novo pedido", "Repetir pedido"],
+                        indexes: [1, 2]
                     }
                 ]);
                 
@@ -187,13 +187,13 @@ export default function ChatBot(props) {
     } 
 
     return props.show ? (
-        <div className="container">
+        <div className="container-bot">
             <FontAwesomeIcon onClick={() => {
                 window.location.reload()
                         }} className="cancel" icon={faCircleXmark} />
             <div className="dialog">
                 {dialog.map((d, index) => (
-                    <div key={index}>
+                    <div key={index} className='conversa-dialog'>
                         {d.sender === "bot" ? (
                             <div className="text-bot">
                                 <img src={robo} className="robo-figure"/>

@@ -2,33 +2,40 @@
     font-family: 'Roboto';
 }
 
-.container {
+.container-bot {
     width: 450px;
     height: 550px;
     position: fixed;
     border-radius: 12px;
     bottom: 3%;
     right: 3%;
+    overflow: hidden;
     z-index: 9999999;
     background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container .dialog {
+.container-bot .dialog {
     width: 100%;
+    flex: 1;
+    padding-top: 110px 0;
+    overflow-y: auto;
     height: 100%;
     padding: 0 20px;
     position: relative;
 }
+.conversa-dialog {
+    padding-top: 50px;
+}
 
-.container .dialog .text-bot {
+.container-bot .dialog .text-bot {
     width: 100%;
     padding: 0 15px;
     height: 150px;
     position: relative;
 }
-.container .dialog .text-user {
+.container-bot .dialog .text-user {
     width: 100%;
     padding: 0 15px;
     height: 150px;
@@ -36,14 +43,14 @@
 }
 .text-bot .robo-figure {
     position: absolute;
+    top: -40%;
     width: 102px;
     height: 106px;
     z-index: 1;
 }
 .text-bot .text-area{
-    position: absolute;
-    top: 36%;
     padding: 14px 12px;
+    position: absolute;
     border-radius: 20px;
     border: 0;
     background-color: #3E8BFF;
@@ -66,12 +73,11 @@
 }
 
 .response-field{
-    position: absolute;
-    bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-top: 15px;
 }
 .response-field input {
     padding: 8px 12px;

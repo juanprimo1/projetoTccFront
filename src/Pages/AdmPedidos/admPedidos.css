@@ -1,0 +1,50 @@
+
+.pedidos-area {
+    margin-top: 40px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.card-pedidos {
+    font-family: "Poppins";
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+    background-color: aliceblue;
+    border-radius: 44px;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.pizza-area p {
+    margin-left: 15px;
+}
+.pizza-area span, .bebida-area span {
+    font-size: 18px;
+    font-weight: bold;
+}
+.bebida-area {
+    margin-top: 10px;
+}
+.card-pedidos button {
+    font-family: "Poppins";
+    background-color: red;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 10px 12px;
+    border-radius: 44px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.card-pedidos button:hover {
+    border: 1px solid red;
+    background-color: #fff;
+    color: red;
+}
