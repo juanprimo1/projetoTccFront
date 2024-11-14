@@ -15,3 +15,13 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./Assets/fonts/Poppins-Regular.ttf') format('truetype'); /* Ajuste o caminho conforme necessário */
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Assets/fonts/Roboto-Regular.ttf') format('truetype'); /* Ajuste o caminho conforme necessário */
+}
