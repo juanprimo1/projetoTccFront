@@ -42,7 +42,7 @@ export default function Login() {
             <div className="input-area">
                 <form div className="input-box" onSubmit={(event) => autenticate(event)}>
                     <div className="title">
-                        <h1>PIZZA</h1>
+                        <h1>ConversaTech</h1>
                         <span>Faça o login para continuar!</span>
                     </div>
                     <div className="inputarea">

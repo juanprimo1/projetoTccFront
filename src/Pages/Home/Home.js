@@ -59,7 +59,7 @@ export default function Home() {
             toast.success("Pizza Deletada com sucesso!");
         })
         .catch((error) => {
-            console.log(error)
+            toast.error ('Não é possível excluir a pizza pois há pedidos vinculados.')
         })
     }
 
@@ -69,7 +69,7 @@ export default function Home() {
             toast.success("Bebida Deletada com sucesso!");
         })
         .catch((error) => {
-            console.log(error)
+            toast.error ('Não é possível excluir a bebida pois há pedidos vinculados.')
         })
     }
 

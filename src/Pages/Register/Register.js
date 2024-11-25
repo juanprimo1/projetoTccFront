@@ -63,7 +63,7 @@ export default function Register() {
                 <div className="input-area">
                     <form div className="input-box" onSubmit={(event) => register(event)}>
                         <div className="title">
-                            <h1>PIZZA</h1>
+                            <h1>ConversaTech</h1>
                             <span>Seja bem vindo! Crie sua conta.</span>
                         </div>
 

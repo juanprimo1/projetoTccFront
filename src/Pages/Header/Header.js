@@ -41,7 +41,7 @@ export default function Header(props) {
     return(
         <header>
             <div className="title-header">
-                <span>Pizza</span>
+                <span>ConversaTech</span>
             </div>
 
             <div className="title-header">

@@ -229,7 +229,7 @@ export default function ChatBot(props) {
 
 
                 <NewPizzaForm hidden={!isNewPizza} user={localStorage.getItem("@userId")} sair={handleButtonClick}/>
-                <OldPedido hidden={!isRepetirPedido} sair={handleButtonClick}/>
+                <OldPedido hidden={!isRepetirPedido} user={localStorage.getItem("@userId")} sair={handleButtonClick}/>
             </div>
             <ToastContainer/>
         </div>) : (<></>);
